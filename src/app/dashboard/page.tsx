@@ -9,6 +9,7 @@ interface User {
 }
 
 export default function Dashboard() {
+    console.log("Dashboard");
     const [user, setUser] = useState<User | null>(null);
     const router = useRouter();
 

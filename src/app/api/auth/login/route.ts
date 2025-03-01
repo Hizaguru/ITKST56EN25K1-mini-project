@@ -1,11 +1,14 @@
+import {NextResponse} from "next/server";
 import jwt from "jsonwebtoken";
 
 export async function POST(req: Request) {
     const {email, password} = await req.json();
 
     if (email === "test@example.com" && password === "password") {
+        console.log("works")
         const token = jwt.sign({name: "Test User", email}, "secret", {expiresIn: "1h"});
-        return Response.json({token});
+        return NextResponse.json({token}, {status: 200});
     }
-    return Response.json({error: "Invalid credentials"}, {status: 401});
+    console.log("invalidccre")
+    return NextResponse.json({error: "Invalid credentials"}, {status: 401});
 }
