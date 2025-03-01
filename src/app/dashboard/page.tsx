@@ -9,7 +9,6 @@ interface User {
 }
 
 export default function Dashboard() {
-    console.log("Dashboard");
     const [user, setUser] = useState<User | null>(null);
     const router = useRouter();
 
@@ -21,7 +20,7 @@ export default function Dashboard() {
             const decoded: User = jwtDecode(token);
             setUser(decoded);
         }
-    }, []);
+    }, [router]);
 
     return (
         <div className="bg-white p-8 rounded shadow-md w-96">
