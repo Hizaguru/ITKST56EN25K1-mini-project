@@ -28,11 +28,13 @@ export default function AuthModal({onClose}: { onClose: () => void }) {
     };
 
     return (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+        <div className="fixed inset-0 bg-opacity-50 flex justify-center items-center">
+ 
             <div className="bg-white p-6 rounded-lg shadow-lg w-96">
                 <h2 className="text-2xl font-semibold text-center mb-4">
                     {isLogin ? "Login" : "Register"}
                 </h2>
+
                 <form onSubmit={handleAuth} className="flex flex-col">
                     {!isLogin && (
                         <input
