@@ -9,9 +9,9 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import java.util.*;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "http://localhost:3000")
 public class AuthController {
     private final UserRepository userRepo;
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -27,7 +27,6 @@ public class AuthController {
             return ResponseEntity.badRequest().body(Map.of("message", "Email already exists"));
         }
 
-        // Salataan salasana ennen tallentamista
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepo.save(user);
         return ResponseEntity.ok(Map.of("message", "User registered successfully"));
@@ -38,11 +37,12 @@ public class AuthController {
         Optional<User> existingUser = userRepo.findByEmail(user.getEmail());
 
         if (existingUser.isPresent() && passwordEncoder.matches(user.getPassword(), existingUser.get().getPassword())) {
+            int tokenExpirationTime = 86400000;
             String token = Jwts.builder()
                     .setSubject(user.getEmail())
                     .claim("name", existingUser.get().getName())
                     .setIssuedAt(new Date())
-                    .setExpiration(new Date(System.currentTimeMillis() + 86400000)) // Token on voimassa 1 päivän
+                    .setExpiration(new Date(System.currentTimeMillis() + tokenExpirationTime))
                     .signWith(SignatureAlgorithm.HS256, secretKey)
                     .compact();
 
