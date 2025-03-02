@@ -2,11 +2,14 @@ package com.example.userdb.Controller;
 
 import com.example.userdb.Data.User;
 import com.example.userdb.Data.UserRepository;
+import io.jsonwebtoken.security.Keys;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+
+import javax.crypto.SecretKey;
 import java.util.*;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -15,7 +18,7 @@ import java.util.*;
 public class AuthController {
     private final UserRepository userRepo;
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-    private final String secretKey = "superSecretKey"; // Vaihda turvallisempaan
+    private final SecretKey secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS256);
 
     public AuthController(UserRepository userRepo) {
         this.userRepo = userRepo;
