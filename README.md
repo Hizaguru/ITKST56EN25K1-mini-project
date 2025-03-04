@@ -42,17 +42,17 @@ docker-compose down
 Services in this Stack
 🖥️ Frontend - Next.js
 
-    Located in User-management-frontend/
-    Runs on port 3000
-    Communicates with the backend API
+Located in User-management-frontend/
+Runs on port 3000
+Communicates with the backend API
 
 ⚙️ Backend - Spring Boot
 
-    Located in UserManagementSystem/
-    Runs on port 8080
-    Connects to MongoDB
+Located in UserManagementSystem/
+Runs on port 8080
+Connects to MongoDB
 
 🗄️ Database - MongoDB
 
-    Runs as a Docker container
-    Stores user authentication data
+Runs as a Docker container
+Stores user authentication data
