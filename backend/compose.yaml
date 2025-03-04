@@ -1,9 +1,46 @@
+version: "3.8"
+
 services:
   mongodb:
-    image: 'mongo:latest'
+    image: "mongo:latest"
+    container_name: mongodb
+    restart: always
     environment:
-      - 'MONGO_INITDB_DATABASE=mydatabase'
-      - 'MONGO_INITDB_ROOT_PASSWORD=secret'
-      - 'MONGO_INITDB_ROOT_USERNAME=root'
+      - "MONGO_INITDB_DATABASE=mydatabase"
+      - "MONGO_INITDB_ROOT_USERNAME=root"
+      - "MONGO_INITDB_ROOT_PASSWORD=secret"
     ports:
-      - '27017'
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  backend:
+    build:
+      context: ./UserManagementSystem
+      dockerfile: Dockerfile
+    container_name: backend
+    restart: always
+    depends_on:
+      - mongodb
+    environment:
+      # Use correct MongoDB credentials & database name
+      SPRING_DATA_MONGODB_URI: mongodb://root:secret@mongodb:27017/mydatabase?authSource=admin
+      SERVER_PORT: 8080
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build:
+      context: ./User-management-frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    restart: always
+    depends_on:
+      - backend
+    environment:
+      NEXT_PUBLIC_API_URL: http://backend:8080
+    ports:
+      - "3000:3000"
+
+volumes:
+  mongo-data:
