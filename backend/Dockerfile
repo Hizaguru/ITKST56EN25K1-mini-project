@@ -1,5 +1,5 @@
 # Use OpenJDK 17 as base image (Java 23 might not be stable)
-FROM openjdk:17-jdk-slim AS build
+FROM openjdk:23-jdk-slim AS build
 
 # Set working directory
 WORKDIR /app
@@ -17,15 +17,19 @@ RUN chmod +x gradlew
 RUN ./gradlew clean build -x test
 
 # Use a smaller runtime image for deployment
-FROM openjdk:17-jdk-slim
+FROM openjdk:23-jdk-slim
 
 WORKDIR /app
 
 # Copy the built JAR from the previous stage
 COPY --from=build /app/build/libs/*.jar userdb.jar
 
+# Copy the startup script
+COPY startup.sh startup.sh
+RUN chmod +x startup.sh
+
 # Expose the application port
 EXPOSE 8080
 
-# Run the Spring Boot application
-CMD ["java", "-jar", "userdb.jar"]
+# Run the startup script
+CMD ["sh", "/app/startup.sh"]
