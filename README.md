@@ -44,8 +44,8 @@ docker-compose down
 
 ITKST56EN25K1-mini-project
 │── Brute-force-python/
-│── User-management-frontend/
-│── UserManagementSystem/
+│── frontend/
+│── backend/
 │── compose.yml
 │── startup.sh
 │── README.md
