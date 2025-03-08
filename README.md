@@ -10,11 +10,11 @@ This project includes the following three projects:
 
 ### 🛠️ **Components**
 
-| Project                      | Description                                     | Technology Stack           |
-| ---------------------------- | ----------------------------------------------- | -------------------------- |
-| **Brute-force-python**       | A script for brute-force testing authentication | Python, Requests           |
-| **User-management-frontend** | A Next.js-based frontend for user management    | React, Next.js, TypeScript |
-| **UserManagementSystem**     | A Spring Boot backend connected to MongoDB      | Java, Spring Boot, MongoDB |
+| Project                | Description                                     | Technology Stack           |
+| ---------------------- | ----------------------------------------------- | -------------------------- |
+| **Brute-force-python** | A script for brute-force testing authentication | Python, Requests           |
+| **frontend**           | A Next.js-based frontend for user management    | React, Next.js, TypeScript |
+| **Backend**            | A Spring Boot backend connected to MongoDB      | Java, Spring Boot, MongoDB |
 
 ---
 
