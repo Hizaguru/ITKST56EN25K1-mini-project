@@ -2,11 +2,11 @@
 
 # 🚀 User Management System - Monorepo
 
-Welcome to the **User Management System**, a full-stack application that integrates authentication, user management, and security testing into a single monorepo. This repository combines **backend, frontend, and security tools** in one place for easy deployment and management.
+Welcome to the **ITKST56EN25K1-mini-project**, a full-stack application that integrates authentication, user management, and security testing into a single monorepo.
 
 ## 📦 **Project Overview**
 
-This monorepo includes the following three projects:
+This project includes the following three projects:
 
 ### 🛠️ **Components**
 
@@ -25,7 +25,7 @@ Follow these steps to **set up** and **run** the entire system locally using **D
 ### 📥 **1️⃣ Clone the Repository**
 
 ```sh
-git clone https://github.com/Hizaguru/UserManagement-Monorepo.git
+git clone https://github.com/Hizaguru/ITKST56EN25K1-mini-project.git
 cd UserManagement-Monorepo
 
 🛠️ 2️⃣ Run with Docker""
@@ -41,7 +41,8 @@ docker-compose down
 
 🏗️ Project Structure
 
-UserManagement-Monorepo/
+
+ITKST56EN25K1-mini-project
 │── Brute-force-python/
 │── User-management-frontend/
 │── UserManagementSystem/
