@@ -1,5 +1,3 @@
-📜 README.md - ITKST56EN25K1-mini-project
-
 # 🚀 ITKST56EN25K1-mini-project
 
 Welcome to the **ITKST56EN25K1-mini-project**, a full-stack application that integrates authentication, user management, and security testing into a single monorepo.
