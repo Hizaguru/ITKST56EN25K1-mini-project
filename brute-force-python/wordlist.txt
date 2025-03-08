@@ -977,4 +977,4 @@ vagrant:vagrant
 Administrator:vagrant
 john:Password123!
 JucksonFive@gmail.com:Password123!
-jucksonFive@gmail.com:Password123!
+JucksonFive@gmail.com:password123!

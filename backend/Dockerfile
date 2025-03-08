@@ -1,35 +1,33 @@
-# Use OpenJDK 17 as base image (Java 23 might not be stable)
-FROM openjdk:23-jdk-slim AS build
+# Vaihda tukevampaan JDK-versioon
+FROM openjdk:17-jdk-slim AS build
 
-# Set working directory
 WORKDIR /app
 
-# Copy Gradle wrapper and necessary files
+# Kopioi kaikki tarvittavat tiedostot
 COPY gradlew gradlew
 COPY gradle gradle
 COPY build.gradle settings.gradle ./
 COPY src src/
 
-# Grant execute permission for Gradle wrapper
+# Anna Gradle-wrapperille suoritusoikeus
 RUN chmod +x gradlew
 
-# Build the application (excluding tests to speed up build)
+# Asenna riippuvuudet ja käännä sovellus (skipataan testit)
 RUN ./gradlew clean build -x test
 
-# Use a smaller runtime image for deployment
-FROM openjdk:23-jdk-slim
+# Pienempi runtime-kuva
+FROM openjdk:17-jdk-slim
 
 WORKDIR /app
 
-# Copy the built JAR from the previous stage
+# Asennetaan tarvittavat paketit (sisältäen curl)
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+
+# Kopioidaan rakennettu JAR-tiedosto
 COPY --from=build /app/build/libs/*.jar userdb.jar
 
-# Copy the startup script
-COPY startup.sh startup.sh
-RUN chmod +x startup.sh
-
-# Expose the application port
+# Exposoidaan portti
 EXPOSE 8080
 
-# Run the startup script
-CMD ["sh", "/app/startup.sh"]
+# Suoritetaan suoraan backend-sovellus ilman startup.sh:ta
+CMD ["java", "-jar", "/app/userdb.jar"]
