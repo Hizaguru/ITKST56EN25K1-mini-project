@@ -26,7 +26,7 @@ Follow these steps to **set up** and **run** the entire system locally using **D
 
 ```sh
 git clone https://github.com/Hizaguru/ITKST56EN25K1-mini-project.git
-cd UserManagement-Monorepo
+cd ITKST56EN25K1-mini-project
 
 🛠️ 2️⃣ Run with Docker""
 
