@@ -29,7 +29,7 @@ git clone https://github.com/Hizaguru/ITKST56EN25K1-mini-project.git
 cd ITKST56EN25K1-mini-project
 ```
 
-🛠️ 2️⃣ Run with Docker""
+### **2️⃣ Run with Docker**
 
 Ensure you have Docker & Docker Compose installed, then execute:
 
