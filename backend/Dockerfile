@@ -1,5 +1,5 @@
 # Vaihda tukevampaan JDK-versioon
-FROM openjdk:17-jdk-slim AS build
+FROM openjdk:23-jdk-slim AS build
 
 WORKDIR /app
 
@@ -16,7 +16,7 @@ RUN chmod +x gradlew
 RUN ./gradlew clean build -x test
 
 # Pienempi runtime-kuva
-FROM openjdk:17-jdk-slim
+FROM openjdk:23-jdk-slim
 
 WORKDIR /app
 
