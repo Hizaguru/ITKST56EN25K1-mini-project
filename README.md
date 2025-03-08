@@ -45,6 +45,7 @@ docker-compose down
 
 🏗️ Project Structure
 
+```sh
 ITKST56EN25K1-mini-project
 │── Brute-force-python/
 │── frontend/
@@ -52,6 +53,7 @@ ITKST56EN25K1-mini-project
 │── compose.yml
 │── startup.sh
 │── README.md
+```
 
 To stop all services, run:
 
