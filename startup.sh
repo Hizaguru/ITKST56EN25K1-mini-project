@@ -4,5 +4,6 @@ echo "🐳 Starting docker..."
 docker-compose up -d
 
 echo "📜 Showing Docker logs..."
-docker-compose logs -f &  # Tämä näyttää lokeja taustaprosessina
+docker compose logs -f | grep "brute-force"
+
 

