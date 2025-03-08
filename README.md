@@ -1,6 +1,6 @@
-📜 README.md - User Management System Monorepo
+📜 README.md - ITKST56EN25K1-mini-project
 
-# 🚀 User Management System - Monorepo
+# 🚀 ITKST56EN25K1-mini-project
 
 Welcome to the **ITKST56EN25K1-mini-project**, a full-stack application that integrates authentication, user management, and security testing into a single monorepo.
 
