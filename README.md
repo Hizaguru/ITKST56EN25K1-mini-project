@@ -45,7 +45,8 @@ UserManagement-Monorepo/
 │── Brute-force-python/
 │── User-management-frontend/
 │── UserManagementSystem/
-│── docker-compose.yml
+│── compose.yml
+│── startup.sh
 │── README.md
 
 To stop all services, run:
