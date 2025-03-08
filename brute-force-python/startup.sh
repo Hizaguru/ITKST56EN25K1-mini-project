@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Waiting for backend to be ready..."
-while ! curl -s "http://backend:8080/api/auth/register" >/dev/null; do  # 🔹 Muutettu backend → localhost
+while ! curl -s "http://backend:8080/api/auth/register" >/dev/null; do 
   echo "Backend not ready..."
   sleep 5
 done
@@ -14,9 +14,6 @@ curl -v -X POST "http://backend:8080/api/auth/register" \
            "email": "JucksonFive@gmail.com",
            "password": "password123!"
          }'
-
-
-
 
 echo "Starting brute-force attack"
 python /app/brute-force-python.py
