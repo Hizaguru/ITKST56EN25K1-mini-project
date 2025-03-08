@@ -18,11 +18,11 @@ This project includes the following three projects:
 
 ---
 
-## 🚀 **Getting Started**
+## **Getting Started**
 
 Follow these steps to **set up** and **run** the entire system locally using **Docker Compose**.
 
-### 📥 **1️⃣ Clone the Repository**
+### **1️⃣ Clone the Repository**
 
 ```sh
 git clone https://github.com/Hizaguru/ITKST56EN25K1-mini-project.git
