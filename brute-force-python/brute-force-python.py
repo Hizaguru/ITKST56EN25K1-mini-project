@@ -1,7 +1,7 @@
 import requests
 from concurrent.futures import ThreadPoolExecutor
 
-LOGIN_URL = "http://localhost:8080/api/auth/login"
+LOGIN_URL = "http://backend:8080/api/auth/login"
 WORDLIST_FILE = "wordlist.txt"
 THREADS = 10
 
