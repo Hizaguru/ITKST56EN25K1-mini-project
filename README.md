@@ -27,20 +27,23 @@ Follow these steps to **set up** and **run** the entire system locally using **D
 ```sh
 git clone https://github.com/Hizaguru/ITKST56EN25K1-mini-project.git
 cd ITKST56EN25K1-mini-project
+```
 
 🛠️ 2️⃣ Run with Docker""
 
 Ensure you have Docker & Docker Compose installed, then execute:
 
+```sh
 ./startup.sh
-
+```
 
 To stop all services, run:
 
+```sh
 docker-compose down
+```
 
 🏗️ Project Structure
-
 
 ITKST56EN25K1-mini-project
 │── Brute-force-python/
@@ -52,5 +55,6 @@ ITKST56EN25K1-mini-project
 
 To stop all services, run:
 
+```sh
 docker-compose down
 ```
