@@ -13,10 +13,10 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")  // 🔹 Salli kaikki reitit
-                        .allowedOrigins("http://localhost:3000")  // 🔹 Salli Next.js-frontend
-                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")  // 🔹 Sallitut HTTP-metodit
-                        .allowedHeaders("*")  // 🔹 Salli kaikki otsikot
-                        .allowCredentials(true);  // 🔹 Salli evästeet & tunnisteet
+                        .allowedOriginPatterns("*")  // 🔹 Korvaa allowedOrigins("*") -> allowedOriginPatterns("*")
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                        .allowedHeaders("*")
+                        .allowCredentials(true);
             }
         };
     }

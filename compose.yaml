@@ -1,15 +1,22 @@
+version: "3.8"
+
 services:
   mongodb:
     image: "mongo:latest"
     container_name: mongodb
     environment:
-      - "MONGO_INITDB_DATABASE=mydatabase"
-      - "MONGO_INITDB_ROOT_USERNAME=root"
-      - "MONGO_INITDB_ROOT_PASSWORD=secret"
+      - MONGO_INITDB_DATABASE=mydatabase
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=secret
     ports:
       - "27017:27017"
     volumes:
       - mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      retries: 5
+      start_period: 30s
 
   backend:
     build:
@@ -18,7 +25,8 @@ services:
     container_name: backend
     restart: always
     depends_on:
-      - mongodb
+      mongodb:
+        condition: service_healthy
     environment:
       SPRING_DATA_MONGODB_URI: mongodb://root:secret@mongodb:27017/mydatabase?authSource=admin
       SERVER_PORT: 8080
@@ -37,6 +45,17 @@ services:
       NEXT_PUBLIC_API_URL: http://backend:8080
     ports:
       - "3000:3000"
+
+  brute-force-python:
+    build:
+      context: ./brute-force-python
+      dockerfile: Dockerfile
+    container_name: brute-force
+    depends_on:
+      - backend
+    environment:
+      LOGIN_URL: http://backend:8080/api/auth/login
+    entrypoint: ["/bin/bash", "/app/startup.sh"]
 
 volumes:
   mongo-data:
