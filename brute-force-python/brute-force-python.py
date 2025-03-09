@@ -45,7 +45,7 @@ def main():
 
 
     with ThreadPoolExecutor(max_workers=THREADS) as executor:
-        chunk_size = len(credentials) // THREADS
+        chunk_size = len(credentials)
         chunks = [credentials[i:i + chunk_size] for i in range(0, len(credentials), chunk_size)]
 
         executor.map(worker, chunks)
