@@ -16,10 +16,10 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .cors(cors -> cors.configurationSource(corsConfigurationSource()))  // 🔹 Ota CORS käyttöön
-                .csrf(csrf -> csrf.disable())  // 🔹 Poista CSRF, jotta Postman toimii
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))  
+                .csrf(csrf -> csrf.disable())  
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**").permitAll()  // 🔹 Salli kaikki /api/auth/** kutsut
+                        .requestMatchers("/api/auth/**").permitAll() 
                         .anyRequest().authenticated()
                 );
 
@@ -29,7 +29,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost:3000", "http://localhost:8080"));  // 🔹 Salli Next.js & Postman
+        config.setAllowedOrigins(List.of("http://localhost:3000", "http://localhost:8080"));  
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
