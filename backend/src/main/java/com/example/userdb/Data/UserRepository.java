@@ -15,15 +15,5 @@ public interface UserRepository extends MongoRepository<User, String> {
 
     Optional<User> findById(String id);
 
-    void deleteById(String id);
-
-    void deleteByName(String name);
-
-    List<User> findByRole(String role);
-
-    List<User> findByAgeGreaterThanEqual(int age);
-
-    List<User> findByName(String name);
-
     Optional<User> findByEmail(String email);
 }
