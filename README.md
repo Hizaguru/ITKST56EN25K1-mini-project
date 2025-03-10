@@ -45,16 +45,10 @@ docker-compose down
 
 ```sh
 ITKST56EN25K1-mini-project
-│── Brute-force-python/
+│── brute-force-python/
 │── frontend/
 │── backend/
 │── compose.yml
 │── startup.sh
 │── README.md
-```
-
-To stop all services, run:
-
-```sh
-docker-compose down
 ```
