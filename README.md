@@ -43,10 +43,10 @@ docker-compose down
 
 🏗️ Project Structure
 
-ITKST56EN25K1-mini-project
-│── brute-force-python/
-│── frontend/
-│── backend/
-│── compose.yml
-│── startup.sh
-│── README.md
+- ITKST56EN25K1-mini-project
+  - brute-force-python/
+  - frontend/
+  - backend/
+  - compose.yml
+  - startup.sh
+  - README.md
