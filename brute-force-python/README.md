@@ -40,7 +40,7 @@ python brute_force-python.py
 
 ## Configuration
 
-Modify the following variables in `brute_force.py` to customize the attack:
+Modify the following variables in `brute_force-python.py` to customize the attack:
 
 ```python
 URL = "http://localhost:8080/api/auth/login"
