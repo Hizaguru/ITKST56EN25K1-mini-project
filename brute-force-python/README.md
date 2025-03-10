@@ -19,6 +19,17 @@ Brute-Force Python is a project designed for testing and learning brute-force at
 - **pip** installed
 - **Backend API** running (Spring Boot backend at `http://localhost:8080`)
 
+## Installation
+
+1. Clone this repository:
+   ```sh
+   cd brute-force-python
+   ```
+1. Install dependencies:
+   ```sh
+   pip install -r requirements.txt
+   ```
+
 ## Usage
 
 Run the script with:
@@ -26,12 +37,6 @@ Run the script with:
 ```sh
 python brute_force-python.py
 ```
-
-The script will:
-
-1. Load a username and password list.
-2. Send authentication requests to `http://localhost:8080/api/auth/login`.
-3. Log successful attempts.
 
 ## Configuration
 
@@ -42,6 +47,12 @@ URL = "http://localhost:8080/api/auth/login"
 PASSWORD_LIST = "passwords.txt"
 THREADS = 10
 ```
+
+The script will:
+
+1. Load a username and password list.
+2. Send authentication requests to `http://localhost:8080/api/auth/login`.
+3. Log successful attempts.
 
 ## Legal Notice
 
